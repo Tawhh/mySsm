@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.weiSsm.dao.UserDao">
+
+    <resultMap id="UserBaseMap" type="cn.com.weiSsm.model.User">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="ming" property="ming" jdbcType="VARCHAR"/>
+        <result column="pwd" property="pwd" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="get" parameterType="java.lang.String" resultMap="UserBaseMap">
+        SELECT * FROM user
+        WHERE id = #{id}
+    </select>
+
+   <!-- <select id="selectUserByPhoneOrEmail" resultMap="UserBaseMap">
+        SELECT * FROM t_user
+        WHERE user_email = #{emailOrPhone} OR user_phone = #{emailOrPhone}
+        AND user_state = #{state}
+    </select>-->
+
+    <select id="selectAllUser" resultMap="UserBaseMap">
+        SELECT * FROM user
+    </select>
+
+</mapper>
