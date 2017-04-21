@@ -20,7 +20,7 @@ ${message}
         </tr>
         <tr>
             <td>
-                密&nbsp;码：<input type="text" id="pwd" name="pwd">
+                密&nbsp;码：<input type="password" id="pwd" name="pwd">
             </td>
         </tr>
         <tr>
