@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: t420
+  User: weihh
   Date: 2017/4/20
   Time: 12:16
   To change this template use File | Settings | File Templates.
@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 ${message}
-<form id="formId" action="/whhssm/user/showUser" method="post">
+<form id="formId" action="/user/showUser" method="post">
     <table>
         <tr>
             <td>
