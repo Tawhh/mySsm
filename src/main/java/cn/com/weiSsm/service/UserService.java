@@ -20,8 +20,8 @@ public class UserService {
     public List<User> selectAllUser(){
         return userDao.selectAllUser();
     }
-    public User get(String id ){
-        return userDao.get(id);
+    public User get(String ming ){
+        return userDao.get(ming);
     }
 
 

@@ -4,13 +4,13 @@
 
     <resultMap id="UserBaseMap" type="cn.com.weiSsm.model.User">
         <id column="id" property="id" jdbcType="VARCHAR"/>
-        <result column="ming" property="ming" jdbcType="VARCHAR"/>
-        <result column="pwd" property="pwd" jdbcType="VARCHAR"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="user_pwd" property="userPwd" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="get" parameterType="java.lang.String" resultMap="UserBaseMap">
         SELECT * FROM user
-        WHERE id = #{id}
+        WHERE user_name = #{userName}
     </select>
 
    <!-- <select id="selectUserByPhoneOrEmail" resultMap="UserBaseMap">

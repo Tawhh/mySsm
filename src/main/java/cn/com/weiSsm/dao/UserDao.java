@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface UserDao {
     List<User> selectAllUser();
-    User get(String id);
+    User get(String userName);
 }
