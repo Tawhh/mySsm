@@ -1,5 +1,6 @@
 package cn.com.weiSsm.service;
 
+import cn.com.weiSsm.base.CrudService;
 import cn.com.weiSsm.dao.UserDao;
 import cn.com.weiSsm.model.User;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class UserService {
+public class UserService extends CrudService<UserDao, User> {
     @Resource
     private UserDao userDao;
 
@@ -22,6 +23,9 @@ public class UserService {
     }
     public User get(String ming ){
         return userDao.get(ming);
+    }
+    public void save(User user){
+         super.save(user);
     }
 
 

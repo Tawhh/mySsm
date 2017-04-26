@@ -1,6 +1,8 @@
 package cn.com.weiSsm.model;
 
-public class User {
+import cn.com.weiSsm.base.DataEntity;
+
+public class User extends DataEntity<User> {
 
     private String id;
 

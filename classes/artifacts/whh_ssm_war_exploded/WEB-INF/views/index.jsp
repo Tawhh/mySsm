@@ -23,31 +23,33 @@
         var url = $("#basePath").val() + "user/createCode?number=" + Math.random();
         $("#img").attr("src", url);
     }
-    function doSubmit() {
-        var flags=true;
+    function doSubmit(option) {
+        var flags = true;
         var ming = $("#userName").val();
         var pwd = $("#userPwd").val();
         var code = $("#veryCode").val();
         if ("" == code || null == code) {
             $("#judges").text("请输入验证码！")
             $("#showHidden").show();
-            flags=false;
+            flags = false;
         }
         if ("" == pwd || null == pwd) {
             $("#judges").text("请输入密码！")
             $("#showHidden").show();
-            flags=false;
+            flags = false;
         }
         if ("" == ming || null == ming) {
             $("#judges").text("请输入用户名！")
             $("#showHidden").show();
-            flags=false;
+            flags = false;
         }
-
-        if(flags){
-            login();
+        if (flags) {
+            if (option == 1) {
+                login();
+            }else{
+                register();
+            }
         }
-
     }
     function login() {
         $.ajax({
@@ -75,6 +77,33 @@
     function login1(fds) {
         $("#formId").attr("action", "/user/showUser");
         $("#formId").submit();
+    }
+    function register1(fds) {
+        $("#formId").attr("action", "/user/register");
+        $("#formId").submit();
+    }
+    function register() {
+        $.ajax({
+            type: "POST", //提交的类型
+            async: false,
+            data: {userName: $("#userName").val(), userPwd: $("#userPwd").val(), veryCode: $("#veryCode").val()},
+            url: "${basePath}/user/registerCheck", //提交地址
+            success: function (data) {
+                var judge = data.data;
+                if (judge == 1) {
+                    $("#judges").text("验证码错误！")
+                    $("#showHidden").show();
+                } else if (judge == 2) {
+                    $("#judges").text("用户名以存在！")
+                    $("#showHidden").show();
+                } else {
+                    flag = true;
+                }
+                if (flag) {
+                    register1(flag);
+                }
+            }
+        });
     }
 </script>
 <center>
@@ -104,7 +133,8 @@
             </tr>
             <tr>
                 <td>
-                    <button type="button" onclick="doSubmit()">登录</button>
+                    <button type="button" onclick="doSubmit(1)" value="1">登录</button>
+                    <button type="button" onclick="doSubmit(2)" value="2">注册</button>
                 </td>
             </tr>
         </table>

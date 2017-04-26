@@ -6,6 +6,12 @@
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="user_pwd" property="userPwd" jdbcType="VARCHAR"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+       <!-- <result column="create_by" property="createBy" jdbcType="VARCHAR"/>-->
+        <result column="create_date" property="createDate" jdbcType="DATE"/>
+        <!--<result column="update_by" property="updateBy" jdbcType="VARCHAR"/>-->
+        <result column="update_date" property="updateDate" jdbcType="DATE"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR"/>
     </resultMap>
 
     <select id="get" parameterType="java.lang.String" resultMap="UserBaseMap">
@@ -13,14 +19,52 @@
         WHERE user_name = #{userName}
     </select>
 
-   <!-- <select id="selectUserByPhoneOrEmail" resultMap="UserBaseMap">
-        SELECT * FROM t_user
-        WHERE user_email = #{emailOrPhone} OR user_phone = #{emailOrPhone}
-        AND user_state = #{state}
-    </select>-->
+    <!-- <select id="selectUserByPhoneOrEmail" resultMap="UserBaseMap">
+         SELECT * FROM t_user
+         WHERE user_email = #{emailOrPhone} OR user_phone = #{emailOrPhone}
+         AND user_state = #{state}
+     </select>-->
 
     <select id="selectAllUser" resultMap="UserBaseMap">
         SELECT * FROM user
     </select>
+
+    <insert id="insert">
+        INSERT INTO user(
+        id,
+        user_name,
+        user_pwd,
+        create_by,
+        create_date,
+        update_by,
+        update_date,
+        remarks,
+        del_flag
+        ) VALUES (
+        #{id},
+        #{userName},
+        #{userPwd},
+        #{createBy},
+        #{createDate},
+        #{updateBy},
+        #{updateDate},
+        #{remarks},
+        #{delFlag}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE user SET
+        id= #{id},
+        user_name= #{userName},
+        user_pwd=  #{userPwd},
+        create_by= #{createBy},
+        create_date= #{createDate},
+        update_by=#{updateBy},
+        update_date= #{updateDate},
+        remarks=  #{remarks},
+        del_flag=#{delFlag}
+        WHERE id = #{id}
+    </update>
 
 </mapper>
