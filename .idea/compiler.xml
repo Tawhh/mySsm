@@ -26,7 +26,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="whh-ssm" target="1.6" />
+      <module name="whh-ssm" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
