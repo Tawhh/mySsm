@@ -15,7 +15,7 @@
     </resultMap>
 
     <select id="get" parameterType="java.lang.String" resultMap="UserBaseMap">
-        SELECT * FROM user
+        SELECT * FROM user_test
         WHERE user_name = #{userName}
     </select>
 

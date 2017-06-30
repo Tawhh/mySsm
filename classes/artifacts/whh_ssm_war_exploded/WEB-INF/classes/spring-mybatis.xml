@@ -35,7 +35,7 @@
         <property name="driverClassName" value="${driverClasss}"/>
         <property name="url" value="${jdbcUrl}"/>
         <property name="username" value="${username}"/>
-        <property name="password" value=""/>
+        <property name="password" value="root"/>
         <!-- 初始化连接大小 -->
         <property name="initialSize" value="${initialSize}"></property>
         <!-- 连接池最大数量 -->

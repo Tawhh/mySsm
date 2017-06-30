@@ -11,7 +11,7 @@
     <mvc:annotation-driven />
     <mvc:default-servlet-handler/>
     <context:component-scan base-package="cn.com.weiSsm"/>
-    <import resource="dubbo-config.xml"/>
+    <!--<import resource="dubbo-config.xml"/>-->
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"
